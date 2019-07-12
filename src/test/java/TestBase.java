@@ -51,12 +51,12 @@ public class TestBase {
 
     public void moveToElement(String elementLocation) {
         Actions builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(By.xpath(elementLocation))).build().perform();
-        builder.click(driver.findElement(By.xpath(elementLocation))).build().perform();
+        builder.moveToElement(driver.findElement(By.xpath(elementLocation)),10,10).build().perform();
     }
 
     public boolean isElementHasClass(String elementLocation, String active) {
-        return driver.findElement(By.xpath(elementLocation)).getAttribute("class").contains(active);
+        return driver.findElement(By.xpath(elementLocation)).
+                findElements(By.xpath(".//*[contains(@class, 'black')]")).size() > 0;
     }
 
     public boolean isElementPresent(String elementLocation) {

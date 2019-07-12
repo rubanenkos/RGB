@@ -1,9 +1,9 @@
 
 public class HomePage {
 
-    public static String variableR = "//*[@id='R-fill']";
-    public static String variableG = "//*[@id='G-fill']";
-    public static String variableB = "//*[@id='B-fill']";
+    public static String variableR = "//*[@id='R']";
+    public static String variableG = "//*[@id='G']";
+    public static String variableB = "//*[@id='B']";
 
     public static String redBackground = "//body[@class='r']";
     public static String greenBackground = "//body[@class='g']";
