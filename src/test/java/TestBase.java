@@ -1,7 +1,5 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -51,17 +49,24 @@ public class TestBase {
         }
     }
 
-
-
     public void moveToElement(String elementLocation) {
-
         Actions builder = new Actions(driver);
         builder.moveToElement(driver.findElement(By.xpath(elementLocation))).build().perform();
         builder.click(driver.findElement(By.xpath(elementLocation))).build().perform();
-
     }
 
+    public boolean isElementHasClass(String elementLocation, String active) {
+        return driver.findElement(By.xpath(elementLocation)).getAttribute("class").contains(active);
+    }
 
-
+    public boolean isElementPresent(String elementLocation) {
+        try {
+            driver.findElement(By.xpath(elementLocation));
+            return true;
+        }
+        catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
 
 }
